@@ -1,0 +1,57 @@
+{
+  "application": [],
+  "dependencies": [],
+  "features": [
+    {
+      "id": 146,
+      "name": "MS Teams",
+      "description": "Feature to provide real time presence synchronization",
+      "status": "INACTIVE",
+      "featureToggle": "release-PartnerIntegration-PSA-PIN-2522",
+      "authorizationType": "BASIC",
+      "billable": false,
+      "prodTypeIds": [],
+      "privilegeIds": [
+        "Adapters",
+        "ADPartnerRegistration",
+        "ADAccountMapping",
+        "ADPresenceSyncRules",
+        "ADUserMapping"
+      ],
+      "subFeatureIds": [],
+      "mandatory": false
+    },
+    {
+      "id": 20100,
+      "name": "CXone Bot Builder",
+      "description": "Bot creation tool that helps customers continuously build, test, review, improve and deploy conversational omnichannel virtual agents without any coding skills.",
+      "status": "INACTIVE",
+      "authorizationType": "BASIC",
+      "billable": false,
+      "prodTypeIds": [],
+      "privilegeIds": [],
+      "subFeatureIds": [],
+      "mandatory": false,
+      "featureToggle": "release-feature-cxOneBotBuilder-BB-7"
+    }
+  ],
+  "privilege": [
+    {
+      "id": "HideCreateCommitments",
+      "name": "Hide Create Commitments",
+      "description": "Agents cannot create commitments but can still view existing ones",
+      "status": "INACTIVE",
+      "featureToggle": "release-UH-HideCreateCommitements-TM-3560",
+      "actions": [
+        {
+          "id": "Hide",
+          "name": "Hide",
+          "status": "INACTIVE",
+          "authType": "BASIC",
+          "featureToggle": "release-UH-HideCreateCommitements-TM-3560",
+          "sortIndex": 0
+        }
+      ]
+    }
+  ]
+}

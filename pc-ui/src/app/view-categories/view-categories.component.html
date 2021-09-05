@@ -1,0 +1,182 @@
+<br>
+<h4>Category</h4>
+<div class="container">
+  <div class="row">
+    <div class="col-2 border bg-secondary font-weight-bold">
+      PROPERTY
+    </div>
+    <div class="col-10 border bg-secondary font-weight-bold">
+      VALUE
+    </div>
+  </div>
+
+  <div class="row" *ngFor="let category of categoryJason">
+    <div class="col-2 border bg-light">
+      {{category.k}}
+    </div>
+    <div class="col-10 border bg-light overflow-auto">
+      {{category.val}}
+    </div>
+  </div>
+
+</div>
+
+<br>
+<h4>Sub Categories</h4>
+<div class="container">
+  <div class="row">
+    <div class="col-3 border bg-secondary font-weight-bold">
+      ID
+    </div>
+    <div class="col-2 border bg-secondary font-weight-bold">
+      NAME
+    </div>
+    <div class="col-2 border bg-secondary font-weight-bold">
+      TYPE
+    </div>
+    <div class="col-1 border bg-secondary font-weight-bold">
+      SORT INDEX
+    </div>
+    <div class="col-3 border bg-secondary font-weight-bold">
+      FT
+    </div>
+    <div class="col-1 border bg-secondary font-weight-bold">
+      VIEW
+    </div>
+  </div>
+
+  <div class="row" *ngFor="let categories of subCategories">
+    <div class="col-3 border bg-light">
+      {{categories.id}}
+    </div>
+    <div class="col-2 border bg-light">
+      {{categories.name}}
+    </div>
+    <div class="col-2 border bg-light">
+      {{categories.type}}
+    </div>
+    <div class="col-1 border bg-light">
+      {{categories.sortIndex}}
+    </div>
+    <div class="col-3 border bg-light">
+      {{categories.featureToggle}}
+    </div>
+    <div class="col-1 border bg-light">
+      <button class="btn btn-primary" (click)="viewCategory(categories.id)">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
+             viewBox="0 0 16 16">
+          <path
+            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<br>
+<h4>Privileges</h4>
+<div class="container">
+
+  <div class="row">
+    <div class="col-3 border bg-secondary font-weight-bold">
+      ID
+    </div>
+    <div class="col-2 border bg-secondary font-weight-bold">
+      NAME
+    </div>
+    <div class="col-2 border bg-secondary font-weight-bold">
+      DESC
+    </div>
+    <div class="col-2 border bg-secondary font-weight-bold">
+      STATUS
+    </div>
+    <div class="col-2 border bg-secondary font-weight-bold">
+      FT
+    </div>
+    <div class="col-1 border bg-secondary font-weight-bold">
+      VIEW
+    </div>
+  </div>
+
+  <div class="row" *ngFor="let privilege of privileges">
+    <div class="col-3 border bg-light">
+      {{privilege.id}}
+    </div>
+    <div class="col-2 border bg-light">
+      {{privilege.name}}
+    </div>
+    <div class="col-2 border bg-light">
+      {{privilege.description}}
+    </div>
+    <div class="col-2 border" [ngClass]="privilege.status==='ACTIVE' ? 'bg-success' : 'bg-warning'">
+      {{privilege.status}}
+    </div>
+    <div class="col-2 border bg-light">
+      {{privilege.featureToggle}}
+    </div>
+    <div class="col-1 border bg-light">
+      <button class="btn btn-primary" (click)="viewPrivilege(privilege.id)">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
+             viewBox="0 0 16 16">
+          <path
+            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+</div>
+
+<br>
+<h4>Features</h4>
+<div class="container">
+
+  <div class="row">
+    <div class="col-sm border bg-secondary font-weight-bold">
+      ID
+    </div>
+    <div class="col-sm border bg-secondary font-weight-bold">
+      NAME
+    </div>
+    <div class="col-sm border bg-secondary font-weight-bold">
+      STATUS
+    </div>
+    <div class="col-sm border bg-secondary font-weight-bold">
+      FT
+    </div>
+    <div class="col-sm border bg-secondary font-weight-bold">
+      AUTH TYPE
+    </div>
+    <div class="col-sm border bg-secondary font-weight-bold">
+      VIEW
+    </div>
+  </div>
+
+  <div class="row" *ngFor="let feature of features">
+    <div class="col-sm border bg-light">
+      {{feature.id}}
+    </div>
+    <div class="col-sm border bg-light">
+      {{feature.name}}
+    </div>
+
+    <div class="col-sm border" [ngClass]="feature.status==='ACTIVE' ? 'bg-success' : 'bg-warning'">
+      {{feature.status}}
+    </div>
+    <div class="col-sm border bg-light">
+      {{feature.featureToggle}}
+    </div>
+    <div class="col-sm border bg-light">
+      {{feature.authorizationType}}
+    </div>
+    <div class="col-sm border bg-light">
+      <button class="btn btn-primary" (click)="viewFeature(feature.id)">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
+             viewBox="0 0 16 16">
+          <path
+            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>

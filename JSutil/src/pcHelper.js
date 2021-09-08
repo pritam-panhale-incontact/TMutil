@@ -8,5 +8,6 @@ main().then(()=>{
 });
 
 async function main() {
-    await entityHandler.getInactiveEntityWithFT();
+    //await entityHandler.getInactiveEntityWithFT();
+    await entityHandler.getAllFeatureTogglesFromFiles();
 }

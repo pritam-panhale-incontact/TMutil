@@ -22,6 +22,13 @@ export class CommonService {
     return this.http.get<any>(Constants.BASE_URL + Constants.URL_PRODUCT_CATALOG, {});
   }
 
+  public readFeatureToggles(ftArray: any) {
+    const body = {
+      featureToggles: ftArray
+    };
+    return this.http.post<any>(Constants.BASE_URL + Constants.URL_FEATURE_TOGGLES, body, {});
+  }
+
   public setData(data: any) {
     this.data = data;
   }

@@ -7,7 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ApplicationsComponent } from './applications/applications.component';
 import { FeaturesComponent } from './features/features.component';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { PrivilegesComponent } from './privileges/privileges.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { DependenciesComponent } from './dependencies/dependencies.component';
@@ -16,6 +16,8 @@ import { FeaturePrivilegeComponent } from './feature-privilege/feature-privilege
 import { PrivilegeActionComponent } from './privilege-action/privilege-action.component';
 import { ViewCategoriesComponent } from './view-categories/view-categories.component';
 import { ViewDependencyComponent } from './view-dependency/view-dependency.component';
+import { FeatureToggleComponent } from './feature-toggle/feature-toggle.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -31,12 +33,14 @@ import { ViewDependencyComponent } from './view-dependency/view-dependency.compo
     FeaturePrivilegeComponent,
     PrivilegeActionComponent,
     ViewCategoriesComponent,
-    ViewDependencyComponent
+    ViewDependencyComponent,
+    FeatureToggleComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

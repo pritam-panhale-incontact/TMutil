@@ -33,13 +33,8 @@ router.get('/product-catalog', async function (req, res, next) {
 
 });
 
-/*router.post('/item', async function (req, res, next) {
-    var isAuthorised = await tokenService.authorizeUser(req, res, next);
-    if (isAuthorised.success === true) {
-        let item = requestService.convertToItem(req.body);
-        let result = await ddbService.createItem(item);
-        requestService.createSuccessResponse(res, result);
-    } else {
-        requestService.createFailedResponse(res, 401, isAuthorised);
-    }
-});*/
+router.post('/check-feature-toggles', async function (req, res, next) {
+    console.log("Http called received!!!", req.body.featureToggles);
+    let response = await entityHandler.getAllFeatureTogglesFromInput(req.body.featureToggles);
+    res.send(response);
+});

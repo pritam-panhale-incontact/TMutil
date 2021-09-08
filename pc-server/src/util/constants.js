@@ -20,7 +20,7 @@ const CONSTANTS = {
         prodUk: 'production-uk-',
         prodNa1: 'production-',
         prodNa2: 'production-fedramp-',
-        prodNaCa: 'production-ca-',
+        prodCa: 'production-ca-',
         prodJp: 'production-jp-',
         staging: 'staging-',
         testNvir: 'test-nvir-',

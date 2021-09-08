@@ -11,6 +11,7 @@ import {FeaturePrivilegeComponent} from './feature-privilege/feature-privilege.c
 import {PrivilegeActionComponent} from './privilege-action/privilege-action.component';
 import {ViewCategoriesComponent} from './view-categories/view-categories.component';
 import {ViewDependencyComponent} from './view-dependency/view-dependency.component';
+import {FeatureToggleComponent} from './feature-toggle/feature-toggle.component';
 
 
 const routes: Routes = [
@@ -53,6 +54,10 @@ const routes: Routes = [
   {
     path: Constants.PATH_VIEW_DEPENDENCY,
     component: ViewDependencyComponent
+  },
+  {
+    path: Constants.PATH_FEATURE_TOGGLES,
+    component: FeatureToggleComponent
   }
 
 

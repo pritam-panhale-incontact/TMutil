@@ -1,6 +1,7 @@
 export class Constants {
   public static BASE_URL = 'http://localhost:4242';
   public static URL_PRODUCT_CATALOG = '/product-catalog';
+  public static URL_FEATURE_TOGGLES = '/check-feature-toggles';
 
   public static PATH_APPLICATION = 'applications';
   public static PATH_FEATURES = 'features';
@@ -13,6 +14,7 @@ export class Constants {
   public static PATH_PRIVILEGE_ACTION = 'privilege-actions';
   public static PATH_VIEW_CATEGORIES = 'view-categories';
   public static PATH_VIEW_DEPENDENCY = 'view-dependency';
+  public static PATH_FEATURE_TOGGLES = 'feature-toggles';
 
 
 }

@@ -161,47 +161,69 @@ function getAllFeatureToggles() {
     console.log(featureTogglesSet);
 }
 
-async function getAllFeatureTogglesFromFiles() {
-    let allFeatureToggles = await xmlUtil.readAllEnvsFeatureToggles();
+async function getAllFeatureTogglesFromInputFile() {
     let fileOutput = fileUtil.readFile(CONSTANTS.inputFilePath, CONSTANTS.inputFileName);
     let ftArray = fileOutput.split('\r\n');
+    let resp = await getAllFeatureTogglesFromInput(ftArray)
+}
+
+async function getAllFeatureTogglesFromInput(ftArray) {
+    if(ftArray.length <= 0) {
+        return [];
+    }
+    let allFeatureToggles = await xmlUtil.readAllEnvsFeatureToggles();
+    //let fileOutput = fileUtil.readFile(CONSTANTS.inputFilePath, CONSTANTS.inputFileName);
+    //let ftArray = fileOutput.split('\r\n');
     //console.log(ftArray);
 
     let map = new Map();
+    ftArray.forEach((ft) => {
+        let blankArr = [];
+        map.set(ft, blankArr);
+    });
 
     for (const [key, value] of Object.entries(allFeatureToggles)) {
         //console.log(key);
-        value.forEach((f) => {
-            let featureId = f['$'].uid;
-            if (ftArray.includes(featureId)) {
-                if (map.has(featureId)) {
-                    let val = map.get(featureId);
-                    val.add(key);
-                    map.set(featureId, val)
-                } else {
-                    let blankArr = new Set();
-                    blankArr.add(key)
-                    map.set(featureId, blankArr)
-                }
+        ftArray.forEach((ft) => {
+            let res = isFeatureToggleContain(value, ft);
+            //console.log(res);
+            if (res.found === true) {
+                let val = map.get(ft);
+                val.push(key);
+                map.set(ft, val);
+            } else {
+                let val = map.get(ft);
+                val.push(' ');
+                map.set(ft, val);
             }
         });
 
     }
-    //console.log(map);
+    console.log('----------------Results--------------------');
+    let responseArray = [];
     map.forEach((value, key, m) => {
-        let arr = Array.from(value).sort();
-        let res = key + ',';
-        arr.forEach((a) => {
-            res = res + a + ','
-        })
+        let res = key + ',' + value.toString();
+        responseArray.push(res);
         console.log(res);
     });
 
+    return responseArray;
+
+}
+
+function isFeatureToggleContain(value, ft) {
+    for (f of value) {
+        let featureId = f['$'].uid;
+        if (ft === featureId) {
+            return {found: true, Id: featureId};
+        }
+    }
+    return {found: false, Id: null};
 }
 
 module.exports = {
     getInactiveEntityWithFT,
     //getAllFeatureToggles,
-    getAllFeatureTogglesFromFiles,
+    getAllFeatureTogglesFromInput,
     getAllProductCatalogData
 };

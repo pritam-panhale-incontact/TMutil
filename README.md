@@ -19,3 +19,27 @@ How to run
 2.	Run pc-ui 
 	Go to pc-ui and run the command – ng-serve
 3.	Access the application from - http://localhost:4200/
+
+
+Repositories for Feature Toggle -
+
+https://github.com/nice-cxone/dev-feature-toggles.git
+https://github.com/nice-cxone/test-feature-toggles.git
+https://github.com/nice-cxone/staging-feature-toggles.git
+
+https://github.com/nice-cxone/production-feature-toggles.git
+https://github.com/nice-cxone/production-au-feature-toggles.git
+https://github.com/nice-cxone/production-de-feature-toggles.git
+https://github.com/nice-cxone/production-uk-feature-toggles.git
+https://github.com/nice-cxone/production-fedramp-feature-toggles.git
+https://github.com/nice-cxone/production-ca-feature-toggles.git
+https://github.com/nice-cxone/production-jp-feature-toggles.git
+
+https://github.com/nice-cxone/perf-feature-toggles.git
+https://github.com/nice-cxone/icpune-perf-feature-toggles.git
+https://github.com/nice-cxone/test-nvir-feature-toggles.git
+
+
+Repository for product catalog
+
+https://github.com/nice-cxone/saas-product-catalog-content

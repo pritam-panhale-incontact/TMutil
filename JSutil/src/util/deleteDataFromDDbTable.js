@@ -74,7 +74,7 @@ function scanTable(table) {
 }
 
 
-function deleteData(table, item) {
+function deleteData(table, item) { 
 
     var key = {};
     key[table.pk] = item[table.pk];

@@ -27,6 +27,15 @@ async function readAllEnvsFeatureToggles() {
     return allEnvFt;
 }
 
+async function readAllTenantData() {
+    let allEnvFt = {};
+    for (const [key, value] of Object.entries(CONSTANT.featuretoggleRepo)) {
+        let xmlOutput = await readXmlFile(CONSTANT.featureToggleBaseRepo + value + CONSTANT.folderSuffix + CONSTANT.fileName);
+        allEnvFt[key] = xmlOutput;
+    }
+    return allEnvFt;
+}
+
 
 module.exports = {
     readXmlFile,

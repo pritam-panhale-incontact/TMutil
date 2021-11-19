@@ -24,10 +24,18 @@ export class CategoriesComponent implements OnInit {
       this.commonService.readFiles().subscribe((data: any) => {
         this.commonService.data = data;
         this.categories = data.categories;
+        this.sortCategoriesBySortIndex();
       });
     } else {
       this.categories = this.commonService.data.categories;
+      this.sortCategoriesBySortIndex();
     }
+  }
+
+  sortCategoriesBySortIndex() {
+    this.categories.sort((a, b) => {
+      return a.sortIndex - b.sortIndex;
+    });
   }
 
   viewCategory(categoryIdURL: any) {

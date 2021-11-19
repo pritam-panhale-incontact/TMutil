@@ -55,8 +55,15 @@ export class ViewCategoriesComponent implements OnInit {
             subCategories.push(categoryLocal);
           });
           this.subCategories = subCategories;
+          this.sortCategoriesBySortIndex();
         }
       });
+  }
+
+  sortCategoriesBySortIndex() {
+    this.subCategories.sort((a, b) => {
+      return a.sortIndex - b.sortIndex;
+    });
   }
 
   viewPrivilege(privilegeIdURL: any) {

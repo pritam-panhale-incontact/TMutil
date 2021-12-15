@@ -6,10 +6,12 @@ const CONSTANTS = {
     featurePath: basePath + "/features",
     privilegePath: basePath + "/privileges",
     targetFile: './src/target/output.json',
-
+    targetFolder: '../src/target/',
     folderSuffix: 'feature-toggles/',
     fileName: 'toggles.xml',
     featureToggleBaseRepo: 'C:/repos/WFO/FeatureToggles/',
+    authorizationBaseRepo: 'C:/repos/WFO/saas-platform-ms-authorization-manager/',
+    ootbBasePath: 'impl/src/main/resources/ootb/',
     featuretoggleRepo: {
         dev: 'dev-',
         test: 'test-',

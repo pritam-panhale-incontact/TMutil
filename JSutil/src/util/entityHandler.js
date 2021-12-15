@@ -143,6 +143,27 @@ function getAllFeatureToggles() {
     console.log(featureTogglesSet);
 }
 
+async function getAllOotbRolesAndPermissions() {
+    let files = [
+        {input: 'partner_userOOTBRoles.json', output: 'partnerOOTB.csv'},
+        {input: 'tm_userOOTBRoles.json', output: 'tmUserOOTB.csv'},
+        {input: 'userOOTBRoles.json', output: 'userOOTB.csv'}
+    ];
+    let header = "ROLE_NAME,DISPLAY_NAME,PERMISSION";
+    files.forEach((file) => {
+        let partnerOotbObject = JSON.parse(fileUtil.readFile(CONSTANTS.authorizationBaseRepo, CONSTANTS.ootbBasePath + file.input));
+        let writeString = header + '\n';
+        partnerOotbObject.roles.forEach((role) => {
+            role.permissions.forEach((permission) => {
+                //console.log(role.roleName, ',', role.displayName, ',', permission.permission);
+                writeString = writeString + role.roleName + ',' + role.displayName + ',' + permission.permission + '\n';
+            });
+        });
+        fileUtil.writeData(CONSTANTS.targetFolder + file.output, writeString);
+    });
+
+}
+
 async function getAllFeatureTogglesFromFiles() {
     let allFeatureToggles = await xmlUtil.readAllEnvsFeatureToggles();
     let fileOutput = fileUtil.readFile(CONSTANTS.inputFilePath, CONSTANTS.inputFileName);
@@ -193,5 +214,6 @@ function isFeatureToggleContain(value, ft) {
 module.exports = {
     getInactiveEntityWithFT,
     //getAllFeatureToggles,
-    getAllFeatureTogglesFromFiles
+    getAllFeatureTogglesFromFiles,
+    getAllOotbRolesAndPermissions,
 }

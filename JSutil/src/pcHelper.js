@@ -9,5 +9,5 @@ main().then(()=>{
 
 async function main() {
     //await entityHandler.getInactiveEntityWithFT();
-    await entityHandler.getAllFeatureTogglesFromFiles();
+    await entityHandler.getAllOotbRolesAndPermissions();
 }
